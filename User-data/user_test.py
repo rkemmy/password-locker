@@ -60,7 +60,7 @@ class TestContact(unittest.TestCase):
         self.new_user.save_user()
         test_user = User("site", "fname", "h8wh83h")
         test_user.save_user()
-        found_user = User.find_by_user_name("remmy")
+        found_user = User.find_by_user_name("fname")
         self.assertEqual(found_user.password,test_user.password)
 
 
