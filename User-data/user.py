@@ -64,4 +64,3 @@ class User:
         method that returns the user user list
         """
         return cls.user_list
-    

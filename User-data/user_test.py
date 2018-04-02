@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from user import User
 
 class TestContact(unittest.TestCase):
@@ -78,6 +79,13 @@ class TestContact(unittest.TestCase):
         method that returns a list of all saved user_list
         """
         self.assertEqual(User.display_users(),User.user_list)
+
+    def test_copy_password(self):
+        """
+        Test to confirm that we are copying the password from an existing user
+        """
+        self.new_user.save_user()
+        User.copy_password("h8wh83h")
 
 
 if __name__ == '__main__':
