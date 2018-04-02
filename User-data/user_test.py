@@ -72,10 +72,12 @@ class TestContact(unittest.TestCase):
         test_user.save_user()
         user_exists = User.user_exist("fname")
         self.assertTrue(user_exists)
-        
 
-
-
+    def test_display_all_users(self):
+        """
+        method that returns a list of all saved user_list
+        """
+        self.assertEqual(User.display_users(),User.user_list)
 
 
 if __name__ == '__main__':
