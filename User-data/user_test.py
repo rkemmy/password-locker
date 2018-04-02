@@ -53,6 +53,8 @@ class TestContact(unittest.TestCase):
         self.new_user.delete_user()#Deleting a user
         self.assertEqual(len(User.user_list),1)
 
+    def test
+
 
 
 if __name__ == '__main__':
