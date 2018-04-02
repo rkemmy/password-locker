@@ -43,15 +43,15 @@ class TestContact(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
-    #def test_delete_user(self):
+    def test_delete_user(self):
         """
         test_delete_user to test if we can remove a user from our user_list
         """
-        #self.new_user.save_user()
-        #test_user = User("site", "fname", "h8wh83h")
-        #test_user.save_user()
-        #self.new_user.delete_user()#Deleting a user
-        #self.assertEqual(len(User.user_list),1)
+        self.new_user.save_user()
+        test_user = User("site", "fname", "h8wh83h")
+        test_user.save_user()
+        self.new_user.delete_user()#Deleting a user
+        self.assertEqual(len(User.user_list),1)
 
 
 
