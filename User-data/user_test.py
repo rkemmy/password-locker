@@ -53,7 +53,16 @@ class TestContact(unittest.TestCase):
         self.new_user.delete_user()#Deleting a user
         self.assertEqual(len(User.user_list),1)
 
-    def test
+    def test_find_user_by_user_name(self):
+        """
+        test to check if we can find a user by username and display information
+        """
+        self.new_user.save_user()
+        test_user = User("site", "fname", "h8wh83h")
+        test_user.save_user()
+        found_user = User.find_by_user_name("remmy")
+        self.assertEqual(found_user.password,test_user.password)
+
 
 
 
