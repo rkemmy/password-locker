@@ -14,6 +14,12 @@ class TestContact(unittest.TestCase):
         """
         self.new_user = User("Facebook", "remmy", "34y8")
 
+    def tearDown(self):
+        """
+        tearDown method that does cleanup after each test case has run
+        """
+        User.user_list = []
+
     def test_init(self):
         """
         test_init test case to test if the object is initialized properly
@@ -36,6 +42,17 @@ class TestContact(unittest.TestCase):
         test_user = User("site","fname","h8wh83h")
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
+
+    #def test_delete_user(self):
+        """
+        test_delete_user to test if we can remove a user from our user_list
+        """
+        #self.new_user.save_user()
+        #test_user = User("site", "fname", "h8wh83h")
+        #test_user.save_user()
+        #self.new_user.delete_user()#Deleting a user
+        #self.assertEqual(len(User.user_list),1)
+
 
 
 if __name__ == '__main__':
