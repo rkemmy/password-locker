@@ -42,8 +42,59 @@ def main():
     print("Hello welcome to password locker. What is your username?")
     username = input()
 
-    print(f"Hi {username}. What would you like to find?")
+    print(f"Hi {username}. What would you like to do?")
     print('\n')
 
     while True:
-        print()
+        print("Use these short codes : uc-create a new user, du - display users, fu- find a user, ex- exit the user list")
+        short_code = input().lower()
+        if short_code == 'uc':
+            print("New User")
+            print("-"*10)
+
+            print(" Choose a Site")
+            sitename = input()
+
+            print("Enter your Username")
+            username = input()
+
+            print("Create a Password")
+            passlock = input()
+
+            save_users(create_user(sitename,username,passlock))#create and save new contact
+            print('\n')
+            print(f"New User {sitename} {username} {passlock} created")
+            print('\n')
+
+        elif short_code == 'du':
+            if display_users():
+                print("Here is a list of all your passwords")
+                print('\n')
+                for user in display_users():
+                    print(f"New User {sitename} {username} {passlock}")
+                    print('\n')
+                else:
+                    print('\n')
+                    print("You don't seem to have any passwords saved yet")
+                    print('\n')
+
+        elif short_code == 'fu':
+            print("Enter the username you want to search for")
+            search_user = input()
+            if check_existing_users(search_user):
+                search_user = find_user(search_user)
+                print(f"{search_user.site_name}")
+                print('-' * 20)
+                print(f"Username....{search_user.user_name}")
+                print(f"Password....{search_user.password}")
+            else:
+                print("That user does not exist")
+
+        elif short_code == 'ex':
+            print("Exiting")
+            break
+    else:
+        print("That short_code is invalid")
+
+if __name__ == '__main__':
+    main()
