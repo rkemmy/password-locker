@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
 from user import User
+from credentials import Credentials
 
 def create_user(sitename,username,passlock):
     """
@@ -38,6 +39,9 @@ def display_users():
     """
     return User.display_users()
 
+def generate_password(password_length):
+    return Credentials.generate_password(password_length)
+
 def main():
     print("Hello welcome to password locker. What is your username?")
     username = input()
@@ -46,7 +50,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : uc-create a new user, du - display users, fu- find a user, ex- exit the user list")
+        print("Use these short codes : uc-create a new user, du - display users, fu- find a user, gp-generate password, ex- exit the user list")
         short_code = input().lower()
         if short_code == 'uc':
             print("New User")
@@ -89,6 +93,13 @@ def main():
                 print(f"Password....{search_user.password}")
             else:
                 print("That user does not exist")
+
+        elif short_code == 'gp':
+            print('')
+            print('How long would you like your password to be?')
+            password_length = int(input())
+            password = generate_password(password_length)
+            print(f"Your password is : {password}")
 
         elif short_code == 'ex':
             print("Exiting")
