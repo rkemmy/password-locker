@@ -85,7 +85,7 @@ class TestContact(unittest.TestCase):
         Test to confirm that we are copying the password from an existing user
         """
         self.new_user.save_user()
-        User.copy_password("h8wh83h")
+        User.copy_password("remmy")
         self.assertEqual(self.new_user.password,pyperclip.paste())
 
 
